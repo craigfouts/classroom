@@ -1,7 +1,13 @@
 #include <stdio.h>
+#include <math.h>
 
 int main() {
-    printf("Hello, World!\n");
+    float x = 3.14;
+
+    // x = sqrt(x);
+    x = ceil(x);
+
+    printf("%f\n", x);
 
     return 0;
 }
