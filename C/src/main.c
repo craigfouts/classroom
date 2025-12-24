@@ -1,13 +1,19 @@
 #include <stdio.h>
-#include <math.h>
+#include <stdlib.h>
 
-int main() {
-    float x = 3.14;
+int main(void) {
+    size_t i;
+    [[maybe_unused]] int j;
+    double A[5] = {
+        9.0,
+        2.9,
+        3.E+25,
+        .00007
+    };
 
-    // x = sqrt(x);
-    x = ceil(x);
-
-    printf("%f\n", x);
+    for (i = 0; i < 5; ++i) {
+        printf("Element %zu is %g, \tits square is %g\n", i, A[i], A[i]*A[i]);
+    }
 
     return 0;
 }

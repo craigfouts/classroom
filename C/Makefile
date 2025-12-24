@@ -1,5 +1,5 @@
 CC := cc
-CFLAGS := -std=c23 -Wall -Wextra -pedantic
+CFLAGS := -std=c23 -Wall -Wc23-extensions -Werror -Wextra -pedantic # -lm
 
 BIN := ./bin
 OBJ := ./obj
