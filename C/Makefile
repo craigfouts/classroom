@@ -1,6 +1,5 @@
 CC := cc
 CFLAGS := -std=c23 -Wall -Werror -Wextra -pedantic # -lm
-
 BIN := ./bin
 OBJ := ./obj
 SRC := ./src
