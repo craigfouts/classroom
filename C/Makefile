@@ -1,5 +1,6 @@
 CC := cc
-CFLAGS := -std=c23 -Wall -Werror -Wextra -pedantic # -lm
+CFLAGS := -std=c23 -Wall -Wextra -pedantic
+LIBS := -lglfw3
 BIN := ./bin
 OBJ := ./obj
 SRC := ./src
@@ -22,7 +23,7 @@ clean:
 	@rm -f $(CLEAN)
 
 $(TARGET): $(OBJS)
-	@$(CC) -o $@ $^ $(CFLAGS)
+	@$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 
 $(OBJ)/%.o: $(SRC)/%.c*
 	@$(CC) -o $@ -c $< $(CFLAGS)
