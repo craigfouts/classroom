@@ -1,6 +1,6 @@
 CC := cc
-CFLAGS := -std=c23 -Wall -Wextra -pedantic
-LIBS := -lglfw3
+CFLAGS := -std=c23 -Wall -Wextra -pedantic $(shell pkg-config --cflags SDL3)
+LDFLAGS := $(shell pkg-config --libs SDL3)
 BIN := ./bin
 OBJ := ./obj
 SRC := ./src
@@ -22,8 +22,8 @@ all: $(TARGET)
 clean:
 	@rm -f $(CLEAN)
 
-$(TARGET): $(OBJS)
-	@$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
+$(TARGET): $(OBJS) 
+	@$(CC) -o $@ $^ $(CFLAGS) $(LDFLAGS)
 
 $(OBJ)/%.o: $(SRC)/%.c*
 	@$(CC) -o $@ -c $< $(CFLAGS)
