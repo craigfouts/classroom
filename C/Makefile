@@ -1,6 +1,7 @@
 CC := cc
-CFLAGS := -std=c23 -Wall -Wextra -pedantic $(shell pkg-config --cflags SDL3)
-LDFLAGS := $(shell pkg-config --libs SDL3)
+LIBS = $(shell cat requirements.txt)
+CFLAGS := -std=c23 -Wall -Wextra -pedantic $(shell pkg-config --cflags $(LIBS))
+LDFLAGS := $(shell pkg-config --libs $(LIBS))
 BIN := ./bin
 OBJ := ./obj
 SRC := ./src
@@ -22,7 +23,7 @@ all: $(TARGET)
 clean:
 	@rm -f $(CLEAN)
 
-$(TARGET): $(OBJS) 
+$(TARGET): $(OBJS)
 	@$(CC) -o $@ $^ $(CFLAGS) $(LDFLAGS)
 
 $(OBJ)/%.o: $(SRC)/%.c*
