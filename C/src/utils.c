@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include "../include/utils.h"
 
 double *ones(size_t size) {
